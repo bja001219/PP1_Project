@@ -11,3 +11,5 @@
 1|pear|배
 1|ship|배
 2|computer|컴퓨터
+1|transfer|옮기다
+1|scatter|흩뿌리다
