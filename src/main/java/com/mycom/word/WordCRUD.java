@@ -15,7 +15,7 @@ public class WordCRUD implements ICRUD {
     }
 
     @Override
-    public Object add() {
+    public Object add() { //단어 추가하여 각각의 level, word, meaning에 scanner s의 값 넣기
         System.out.print("=> 난이도 1,2,3 중에 입력 : ");
         int level = s.nextInt();
         System.out.print("=> 새 단어 입력 : ");
@@ -25,7 +25,7 @@ public class WordCRUD implements ICRUD {
         return new Word(0, level, word, meaning);
     }
 
-    public void addItem() {
+    public void addItem() { //위의 add 사용하여 4번 메뉴 실행하기
         Word a = (Word)add();
         list.add(a);
         System.out.println("새 단어가 단어장에 추가되었습니다.");
@@ -45,7 +45,7 @@ public class WordCRUD implements ICRUD {
     public void selectOne(int id) {
     }
 
-    public void listAll() {
+    public void listAll() { //1번 메뉴의 모든 단어 보여주는 기능실행
         System.out.println("---------------------------------");
         for(int i = 0; i< list.size(); i++) {
             System.out.print((i+1)+ " ");
@@ -53,7 +53,7 @@ public class WordCRUD implements ICRUD {
         }
         System.out.println("---------------------------------");
     }
-    public ArrayList<Integer> listAll(String keyword) {
+    public ArrayList<Integer> listAll(String keyword) { //사용자에게 입력받은 키워드를 통해 작업 할 때 필요
         int j = 0;
         ArrayList<Integer> idlist = new ArrayList<>();
         System.out.println("---------------------------------");
@@ -71,15 +71,15 @@ public class WordCRUD implements ICRUD {
         return idlist;
     }
 
-    public void searchLevel() {
+    public void searchLevel() { //2번 메뉴 실행을 위해 필요
         System.out.println("=> 원하는 레벨은? (1~3): ");
-        int level = s.nextInt();
+        int level = s.nextInt(); //사용자에게 레벨을 받고
         int j = 0;
         ArrayList<Integer> idlist = new ArrayList<>();
         System.out.println("---------------------------------");
-        for(int i = 0; i< list.size(); i++) {
+        for(int i = 0; i< list.size(); i++) { 
             int ilevel = list.get(i).getLevel();
-            if(ilevel == level){
+            if(ilevel == level){ //레벨이 일치하는 단어들 출력해주기
                 System.out.print((j+1)+ " ");
                 System.out.println(list.get(i).toString());
                 j++;
@@ -87,14 +87,14 @@ public class WordCRUD implements ICRUD {
         }
         System.out.println("---------------------------------");
     }
-    public void updateItem() {
+    public void updateItem() { // 5번 메뉴 실행 위해 함수 만들기
         System.out.print("=> 수정할 단어 검색 : ");
         String keyword = s.next();
-        ArrayList<Integer> idlist = this.listAll(keyword);
+        ArrayList<Integer> idlist = this.listAll(keyword); //위의 listAll 키워드를 사용하여 사용자가 원하는 단어 찾기
         System.out.println("=> 수정할 번호 선택 : ");
         int id = s.nextInt();
         s.nextLine();
-        System.out.println("=> 뜻 입력 : ");
+        System.out.println("=> 뜻 입력 : "); //이후 뜻만 따로 입력받아 수정하기
         String meaning = s.nextLine();
         Word word = list.get(idlist.get(id - 1));
         word.setMeaning(meaning);
@@ -102,7 +102,7 @@ public class WordCRUD implements ICRUD {
     }
 
 
-    public void deleteItem() {
+    public void deleteItem() { //6번 메뉴 실행 위한 함수
         System.out.println("=> 삭제할 단어 검색 : ");
         String keyword = s.next();
         ArrayList<Integer> idlist = this.listAll(keyword);
@@ -111,7 +111,7 @@ public class WordCRUD implements ICRUD {
         s.nextLine();
 
         System.out.println("=> 정말로 삭제하시겠습니까?(y/n) : ");
-        while(true){
+        while(true){ //y와 n외의 글자를 입력하면 둘 중 하나 입력할때까지 while 돌리기
             String ans = s.next();
             if(ans.equals("y")||ans.equals("Y")) {
                 list.remove((int)idlist.get(id - 1));
