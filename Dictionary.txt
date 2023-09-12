@@ -13,3 +13,7 @@
 2|computer|컴퓨터
 1|transfer|옮기다
 1|scatter|흩뿌리다
+1|faith|믿음
+1|smartphone|스마트폰
+2|combination|조합
+1|mouse|쥐,마우스
