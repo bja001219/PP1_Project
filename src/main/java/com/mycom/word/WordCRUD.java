@@ -15,9 +15,10 @@ public class WordCRUD implements ICRUD {
     }
 
     @Override
-    public Object add() { //단어 추가하여 각각의 level, word, meaning에 scanner s의 값 넣기
+    public Object add() {
         System.out.print("=> 난이도 1,2,3 중에 입력 : ");
         int level = s.nextInt();
+        s.nextLine();
         System.out.print("=> 새 단어 입력 : ");
         String word = s.nextLine();
         System.out.print("뜻 입력 : ");
@@ -153,7 +154,7 @@ public class WordCRUD implements ICRUD {
 
     public void saveFile() {
         try {
-            PrintWriter pr = new PrintWriter(new FileWriter("test.txt"));
+            PrintWriter pr = new PrintWriter(new FileWriter("Dictionary.txt"));
             for (Word one : list){
                 pr.write(one.toFileString() + "\n");
             }

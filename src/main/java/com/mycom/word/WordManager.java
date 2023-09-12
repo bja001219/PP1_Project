@@ -44,7 +44,7 @@ public class WordManager {
                 wordCRUD.searchWord();
             }
             else if(menu == 4) {
-                wordCRUD.add();
+                wordCRUD.addItem();
             }
             else if(menu == 5){
                 wordCRUD.updateItem();
