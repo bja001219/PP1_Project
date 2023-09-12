@@ -1,0 +1,13 @@
+3| superintendent| 관리자, 감독관
+1|electric|전기의, 전기를 생산하는
+2|equipment|장비, 용품
+1|apple|사과
+1|key|키
+3|supervisor|감독관
+2|mercy|자비
+2|basketball|농구
+1|dog|개
+3|assasination|암살
+1|pear|배
+1|ship|배
+2|computer|컴퓨터
